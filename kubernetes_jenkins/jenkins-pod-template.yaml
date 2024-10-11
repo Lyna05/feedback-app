@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  name: jenkins-agent-pod
   labels:
     jenkins: slave
 spec:
@@ -22,7 +23,7 @@ spec:
     - name: docker-socket
       mountPath: /var/run/docker.sock
   - name: kubectl
-    image: galaataman/kubectl:latest
+    image: lyna720/kubectl:latest
     resources:
       requests:
         memory: "128Mi"
@@ -34,7 +35,7 @@ spec:
     - cat
     tty: true
   - name: k6
-    image: galaataman/k6:latest
+    image: lyna720/k6:latest
     resources:
       requests:
         memory: "128Mi"
